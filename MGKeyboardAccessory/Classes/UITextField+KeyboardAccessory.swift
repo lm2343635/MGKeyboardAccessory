@@ -12,17 +12,19 @@ public extension UITextField {
 //                                                  action: #selector(clearTextFeild))
 //            clearButtonItem.tintColor = UIColor.white
             
+            
             let spaceButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+            
+            
 //            let doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(editFinish))
 //            doneButtonItem.tintColor = UIColor.white
             
 //            var items = [clearButtonItem, spaceButtonItem]
             var items = [spaceButtonItem]
             for string in strings {
-                items.append(createCharacterBarButtonItem(character: string,
-                                                         
+                items.append(createStringBarButtonItem(string: string,
                                                           action: #selector(addCharacter(_:)),
-                                                          width: 26))
+                                                          height: 26))
             }
             items.append(spaceButtonItem)
 //            items.append(doneButtonItem)
@@ -34,19 +36,25 @@ public extension UITextField {
         self.inputAccessoryView = topView
     }
     
-    func createCharacterBarButtonItem(character: String, action: Selector, width: CGFloat) -> UIBarButtonItem {
-        let characterButton: UIButton = {
-            let button = UIButton(frame: CGRect(x: 2, y: 2, width: width, height: 26))
+    func createStringBarButtonItem(string: String, action: Selector, height: CGFloat) -> UIBarButtonItem {
+        let stringButton: UIButton = {
+            let button = UIButton(type: .custom)
+            button.setTitle(string, for: .normal)
+            var width = button.sizeThatFits(CGSize.init(width: CGFloat.greatestFiniteMagnitude, height: height)).width
+            if width > height {
+                width += height / 4;
+            }
+            button.frame = CGRect(x: 2, y: 2, width: width, height: height)
             button.layer.cornerRadius = 5
             button.layer.borderWidth = 1
             button.layer.borderColor = UIColor.white.cgColor
-            button.setTitle(character, for: .normal)
+            
             button.tintColor = UIColor.white
-//            button.backgroundColor = RGB(DesignColor.nagivation.rawValue)
-//            button.addTarget(target, action: action, for: .touchUpInside)
+            button.addTarget(target, action: action, for: .touchUpInside)
+            
             return button
         }()
-        let characterButtonItem = UIBarButtonItem(customView: characterButton)
+        let characterButtonItem = UIBarButtonItem(customView: stringButton)
         return characterButtonItem
     }
     

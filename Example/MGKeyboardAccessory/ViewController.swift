@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        textField.setCloseKeyboardAccessoryForSender(["a", "bob", "c"])
+        textField.setCloseKeyboardAccessoryForSender([".com", ".cn", ".net"])
     }
 
     override func didReceiveMemoryWarning() {
