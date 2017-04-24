@@ -9,8 +9,6 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
-
 ## Installation
 
 MGKeyboardAccessory is available through [CocoaPods](http://cocoapods.org). To install
@@ -20,9 +18,18 @@ it, simply add the following line to your Podfile:
 pod "MGKeyboardAccessory"
 ```
 
+## How to use
+It is very simple to add a keyboard accessoray for text field. In our demo, we added a black style accessoray:
+
+```swift
+blackTextField.setupKeyboardAccessory([":", "/", "\""], barStyle: .black)
+```
+
+The first parameter is a string array to create custom button, the second parameter is the bar style. Use **UIBarStyle** provided by UIKit directly.
+
 ## Author
 
-limeng, lm2343635@126.com
+Meng Li, http://fczm.pw, lm2343635@126.com
 
 ## License
 

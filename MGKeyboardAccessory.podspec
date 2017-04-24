@@ -8,35 +8,23 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MGKeyboardAccessory'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of MGKeyboardAccessory.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.version          = '0.1'
+  s.summary          = 'MGKeyboardAccessory allows developer to add the custom button with text in keyboard accessory, text in the button will be inserted to text filed if the button is clicked.'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+# Features
+- Support custom text in the button.
+- Support two styles: defualt and dark.
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/MGKeyboardAccessory'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/lm2343635/MGKeyboardAccessory'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'limeng' => 'lm2343635@126.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/MGKeyboardAccessory.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'Meng Li' => 'lm2343635@126.com' }
+  s.social_media_url = "http://fczm.pw"
+  s.source           = { :git => 'https://github.com/lm2343635/MGKeyboardAccessory.git', :tag => '0.1' }
 
+  s.platform     = :ios
   s.ios.deployment_target = '8.0'
-
   s.source_files = 'MGKeyboardAccessory/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'MGKeyboardAccessory' => ['MGKeyboardAccessory/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

@@ -11,12 +11,14 @@ import MGKeyboardAccessory
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var blackTextField: UITextField!
+    @IBOutlet weak var defaultTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField.becomeFirstResponder()
-        textField.setupKeyboardAccessory([":", "/", "\""], barStyle: .default)
+        blackTextField.becomeFirstResponder()
+        blackTextField.setupKeyboardAccessory([":", "/", "\""], barStyle: .black)
+        defaultTextField.setupKeyboardAccessory([":", "/", "\""], barStyle: .default)
     }
 
 }
