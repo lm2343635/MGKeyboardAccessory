@@ -27,6 +27,8 @@ blackTextField.setupKeyboardAccessory([":", "/", "\""], barStyle: .black)
 
 The first parameter is a string array to create custom button, the second parameter is the bar style. Use **UIBarStyle** provided by UIKit directly.
 
+![MGKeyboardAccessory](https://raw.githubusercontent.com/lm2343635/MGKeyboardAccessory/master/screenshot/demo.png)
+
 ## Author
 
 Meng Li, http://fczm.pw, lm2343635@126.com
