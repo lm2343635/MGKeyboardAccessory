@@ -19,6 +19,11 @@ DerivedData
 *.hmap
 *.ipa
 
+# Pod
+Example/MGKeyboardAccessory.xcworkspace/
+Example/Podfile.lock
+Example/Pods/
+
 # Bundler
 .bundle
 

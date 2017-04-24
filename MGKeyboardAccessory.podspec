@@ -9,9 +9,10 @@
 Pod::Spec.new do |s|
   s.name             = 'MGKeyboardAccessory'
   s.version          = '0.1'
-  s.summary          = 'MGKeyboardAccessory allows developer to add the custom button with text in keyboard accessory, text in the button will be inserted to text filed if the button is clicked.'
+  s.summary          = 'A keyboard accessory to input special text to text field directly.'
 
   s.description      = <<-DESC
+MGKeyboardAccessory is a keyboard accessory to input special text to text field directly. Itallows developer to add the custom button with text in keyboard accessory, text in the button will be inserted to text field if the button is clicked.
 # Features
 - Support custom text in the button.
 - Support two styles: defualt and dark.
