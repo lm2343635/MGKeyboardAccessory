@@ -3,20 +3,14 @@
 # * https://github.com/supermarin/xcpretty#usage
 
 osx_image: xcode8
-language: swift
+language: objective-c
 cache: cocoapods
 podfile: Example/Podfile
 
 before_install:
-- gem install xcpretty --no-rdoc --no-ri --no-document --quiet
-- gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
+- gem install cocoapods # Since Travis is not always on latest version
 - pod install --project-directory=Example
 
 script:
-- set -o pipefail
-- xcodebuild -workspace "Example/MGKeyboardAccessory.xcworkspace" -scheme "MGKeyboardAccessory-Example" -configuration Debug clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty -c
-- xcodebuild -workspace "Example/MGKeyboardAccessory.xcworkspace" -scheme "MGKeyboardAccessory-Example" -configuration Release clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty -c
-- pod lib lint --no-clean
-
-after_success:
-- sleep 5
+- set -o pipefail && xcodebuild test -workspace Example/${POD_NAME}.xcworkspace -scheme ${POD_NAME}-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
+- pod lib lint
