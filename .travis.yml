@@ -13,5 +13,5 @@ before_install:
 
 script:
 - set -o pipefail 
-- xcodebuild test -workspace Example/MGKeyboardAccessory.xcworkspace -scheme MGKeyboardAccessory-Example -configuration Debug clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty -c
+- xcodebuild -workspace Example/MGKeyboardAccessory.xcworkspace -scheme MGKeyboardAccessory-Example -configuration Debug clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty -c
 - pod lib lint
