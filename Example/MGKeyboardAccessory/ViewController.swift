@@ -17,8 +17,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         blackTextField.becomeFirstResponder()
-        blackTextField.setupKeyboardAccessory([":", "/", "\""], barStyle: .black)
-        defaultTextField.setupKeyboardAccessory([":", "/", "\""], barStyle: .default)
+        blackTextField.setupKeyboardAccessory([":", "/", "?", "&", ".", "=", "*", "-"], barStyle: .black)
+        defaultTextField.setupKeyboardAccessory([":", "/", "?", "&", ".", "="], barStyle: .default)
     }
 
 }

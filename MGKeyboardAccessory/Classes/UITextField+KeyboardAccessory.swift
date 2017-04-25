@@ -27,13 +27,13 @@
 import Foundation
 
 public extension UITextField {
-
+    
     func setupKeyboardAccessory(_ strings: [String], barStyle: UIBarStyle) {
         let buttonColor = (barStyle == .default) ? UIColor.darkGray : UIColor.white
         
         let topView: UIToolbar = {
-            let view = UIToolbar.init(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: 35))
-            view.barStyle = barStyle;
+            let toolbar = UIToolbar.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
+            toolbar.barStyle = barStyle;
             let clearButtonItem = UIBarButtonItem(barButtonSystemItem: .trash,
                                                   target: self,
                                                   action: #selector(clearTextFeild))
@@ -44,43 +44,51 @@ public extension UITextField {
             let doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
                                                  target: self,
                                                  action: #selector(editFinish))
+            doneButtonItem.width = 150;
             doneButtonItem.tintColor = buttonColor
             
-            var items = [clearButtonItem, spaceButtonItem]
-            for string in strings {
-                items.append(createStringBarButtonItem(string: string,
-                                                       color:  buttonColor,
-                                                       action: #selector(addText(_:)),
-                                                       height: 26))
-            }
-            items.append(spaceButtonItem)
-            items.append(doneButtonItem)
-            view.setItems(items, animated: false)
+            let items = [clearButtonItem,
+                         spaceButtonItem,
+                         createStringBarButtonItem(strings: strings,
+                                                   color:  buttonColor,
+                                                   action: #selector(addText(_:)),
+                                                   height: 26),
+                         spaceButtonItem,
+                         doneButtonItem]
+            toolbar.setItems(items, animated: false)
             
-            return view
+            return toolbar
         }()
         
         self.inputAccessoryView = topView
     }
     
-    func createStringBarButtonItem(string: String, color: UIColor, action: Selector, height: CGFloat) -> UIBarButtonItem {
-        let stringButton: UIButton = {
-            let button = UIButton(type: .custom)
-            button.setTitle(string, for: .normal)
-            var width = button.sizeThatFits(CGSize.init(width: CGFloat.greatestFiniteMagnitude, height: height)).width
-            if width > height * 1.2 {
-                width += height / 4;
-            }
-            button.frame = CGRect(x: 2, y: 2, width: width, height: height)
-            button.layer.cornerRadius = 5
-            button.layer.borderWidth = 1
-            button.layer.borderColor = color.cgColor
-            button.tintColor = color
-            button.setTitleColor(color, for: .normal)
-            button.addTarget(target, action: action, for: .touchUpInside)
-            return button
-        }()
-        let characterButtonItem = UIBarButtonItem(customView: stringButton)
+    func createStringBarButtonItem(strings: [String], color: UIColor, action: Selector, height: CGFloat) -> UIBarButtonItem {
+        let buttonsView = UIView()
+        var x: CGFloat = 0
+        var width: CGFloat = 0
+        for string in strings {
+            let stringButton: UIButton = {
+                let button = UIButton(type: .custom)
+                button.setTitle(string, for: .normal)
+                width = button.sizeThatFits(CGSize.init(width: CGFloat.greatestFiniteMagnitude, height: height)).width
+                if width > height * 1.2 {
+                    width += height / 4;
+                }
+                button.frame = CGRect(x: x, y: 0, width: width, height: height)
+                button.layer.cornerRadius = 5
+                button.layer.borderWidth = 1
+                button.layer.borderColor = color.cgColor
+                button.tintColor = color
+                button.setTitleColor(color, for: .normal)
+                button.addTarget(target, action: action, for: .touchUpInside)
+                return button
+            }()
+            buttonsView.addSubview(stringButton)
+            x = x + 2 + width
+        }
+        buttonsView.frame = CGRect(x: 0, y: 0, width: x - 2, height: height)
+        let characterButtonItem = UIBarButtonItem(customView: buttonsView)
         return characterButtonItem
     }
     
