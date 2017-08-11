@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MGKeyboardAccessory'
-  s.version          = '0.1.1'
+  s.version          = '0.2'
   s.summary          = 'A keyboard accessory to input special text to text field directly.'
 
   s.description      = <<-DESC
@@ -16,13 +16,14 @@ MGKeyboardAccessory is a keyboard accessory to input special text to text field 
 # Features
 - Support custom text in the button.
 - Support two styles: defualt and dark.
+- Support to scroll character buttons horizontally.
                        DESC
 
   s.homepage         = 'https://github.com/lm2343635/MGKeyboardAccessory'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Meng Li' => 'lm2343635@126.com' }
   s.social_media_url = "http://fczm.pw"
-  s.source           = { :git => 'https://github.com/lm2343635/MGKeyboardAccessory.git', :tag => '0.1.1' }
+  s.source           = { :git => 'https://github.com/lm2343635/MGKeyboardAccessory.git', :tag => s.version.to_s }
 
   s.platform     = :ios
   s.ios.deployment_target = '8.0'

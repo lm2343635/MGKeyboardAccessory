@@ -18,7 +18,7 @@ MGKeyboardAccessory is available through [CocoaPods](http://cocoapods.org). To i
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "MGKeyboardAccessory"
+pod 'MGKeyboardAccessory', '~> 0.2'
 ```
 
 ## How to use
@@ -41,6 +41,9 @@ The first parameter is a string array to create custom button, the second parame
 
 - v0.1.1
 	- Fix the issue about the width of keyboard accessory.
+
+- v0.2
+    - Support to scroll character buttons horizontally.
 
 ## Author
 
