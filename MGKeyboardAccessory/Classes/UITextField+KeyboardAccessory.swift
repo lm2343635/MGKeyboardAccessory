@@ -64,7 +64,7 @@ public extension UITextField {
     }
     
     func createStringBarButtonItem(strings: [String], color: UIColor, action: Selector, height: CGFloat) -> UIBarButtonItem {
-        let buttonsView = UIView()
+        let buttonsView = UIScrollView()
         var x: CGFloat = 0
         var width: CGFloat = 0
         for string in strings {
@@ -87,7 +87,15 @@ public extension UITextField {
             buttonsView.addSubview(stringButton)
             x = x + 2 + width
         }
-        buttonsView.frame = CGRect(x: 0, y: 0, width: x - 2, height: height)
+        // If button width is larger than the max avaliable width for all character buttons,
+        // set screen width - 110 as button width.
+        var buttonWidth = x - 2
+        if UIScreen.main.bounds.width - 110 < buttonWidth {
+            buttonWidth = UIScreen.main.bounds.width - 110
+        }
+        buttonsView.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: height)
+        buttonsView.contentSize = CGSize(width: x - 2, height: 0)
+        buttonsView.showsHorizontalScrollIndicator = false
         let characterButtonItem = UIBarButtonItem(customView: buttonsView)
         return characterButtonItem
     }
