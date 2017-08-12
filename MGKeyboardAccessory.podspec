@@ -8,15 +8,15 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MGKeyboardAccessory'
-  s.version          = '0.2'
-  s.summary          = 'A keyboard accessory to input special text to text field directly.'
+  s.version          = '0.3'
+  s.summary          = 'A keyboard accessory to input special characters.'
 
   s.description      = <<-DESC
-MGKeyboardAccessory is a keyboard accessory to input special text to text field directly. Itallows developer to add the custom button with text in keyboard accessory, text in the button will be inserted to text field if the button is clicked.
+MGKeyboardAccessory is a keyboard accessory to input special characters in UITextField or UI directly. It allows developers to add the custom button with characters in keyboard accessory, characters in the button will be inserted to text field if the button is clicked.
 # Features
-- Support custom text in the button.
+- Support custom characters.
 - Support two styles: defualt and dark.
-- Support to scroll character buttons horizontally.
+- Support both UITextField and UITextView.
                        DESC
 
   s.homepage         = 'https://github.com/lm2343635/MGKeyboardAccessory'
