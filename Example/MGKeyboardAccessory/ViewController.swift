@@ -13,12 +13,14 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var blackTextField: UITextField!
     @IBOutlet weak var defaultTextField: UITextField!
+    @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         blackTextField.becomeFirstResponder()
         blackTextField.setupKeyboardAccessory([":", "/", "?", "&", "alice", "=", "*", "-", "@", "~"], barStyle: .black)
         defaultTextField.setupKeyboardAccessory([":", "/", "?", "&", ".", "="], barStyle: .default)
+        textView.setupKeyboardAccessory([":", "/", "?", "&", ".", "="], barStyle: .black)
     }
 
 }

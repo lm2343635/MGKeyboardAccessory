@@ -1,9 +1,9 @@
 //
-//  UITextField+KeyboardAccessory.swift
+//  AccessoryToolbar.swift
 //  MGKeyboardAccessory
 //
-//  Created by limeng on 01/22/2017.
-//  Copyright (c) 2017 fczm.pw. All rights reserved.
+//  Created by Meng Li on 12/08/2017.
+//
 //
 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,41 +26,41 @@
 
 import Foundation
 
-public extension UITextField {
+class AccessoryToolbar: UIToolbar {
     
-    func setupKeyboardAccessory(_ strings: [String], barStyle: UIBarStyle) {
+    private var textInput: UITextInput!
+    
+    public init(_ strings: [String], barStyle: UIBarStyle, forTextInput: UITextInput) {
+        super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
+        self.textInput = forTextInput;
+        self.barStyle = barStyle;
         let buttonColor = (barStyle == .default) ? UIColor.darkGray : UIColor.white
+        let clearButtonItem = UIBarButtonItem(barButtonSystemItem: .trash,
+                                              target: self,
+                                              action: #selector(clearTextFeild))
+        clearButtonItem.tintColor = buttonColor
+        let spaceButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                              target: self,
+                                              action: nil)
+        let doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
+                                             target: self,
+                                             action: #selector(editFinish))
+        doneButtonItem.width = 150;
+        doneButtonItem.tintColor = buttonColor
         
-        let topView: UIToolbar = {
-            let toolbar = UIToolbar.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
-            toolbar.barStyle = barStyle;
-            let clearButtonItem = UIBarButtonItem(barButtonSystemItem: .trash,
-                                                  target: self,
-                                                  action: #selector(clearTextFeild))
-            clearButtonItem.tintColor = buttonColor
-            let spaceButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                                  target: self,
-                                                  action: nil)
-            let doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
-                                                 target: self,
-                                                 action: #selector(editFinish))
-            doneButtonItem.width = 150;
-            doneButtonItem.tintColor = buttonColor
-            
-            let items = [clearButtonItem,
-                         spaceButtonItem,
-                         createStringBarButtonItem(strings: strings,
-                                                   color:  buttonColor,
-                                                   action: #selector(addText(_:)),
-                                                   height: 26),
-                         spaceButtonItem,
-                         doneButtonItem]
-            toolbar.setItems(items, animated: false)
-            
-            return toolbar
-        }()
-        
-        self.inputAccessoryView = topView
+        let items = [clearButtonItem,
+                     spaceButtonItem,
+                     createStringBarButtonItem(strings: strings,
+                                               color:  buttonColor,
+                                               action: #selector(addText(_:)),
+                                               height: 26),
+                     spaceButtonItem,
+                     doneButtonItem]
+        self.setItems(items, animated: false)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func createStringBarButtonItem(strings: [String], color: UIColor, action: Selector, height: CGFloat) -> UIBarButtonItem {
@@ -101,18 +101,43 @@ public extension UITextField {
     }
     
     func addText(_ sender: UIButton) {
-        self.insertText((sender.titleLabel?.text)!)
+        if textInput.isMember(of: UITextField.self){
+            let textFiled = textInput as! UITextField
+            textFiled.insertText((sender.titleLabel?.text)!)
+        }
+        if textInput.isMember(of: UITextView.self) {
+            let textView = textInput as! UITextView
+            textView.insertText((sender.titleLabel?.text)!)
+        }
     }
     
     func editFinish() {
-        if self.isFirstResponder {
-            self.resignFirstResponder()
+        if textInput.isMember(of: UITextField.self){
+            let textFiled = textInput as! UITextField
+            if textFiled.isFirstResponder {
+                textFiled.resignFirstResponder()
+            }
+        }
+        if textInput.isMember(of: UITextView.self){
+            let textView = textInput as! UITextView
+            if textView.isFirstResponder {
+                textView.resignFirstResponder()
+            }
         }
     }
     
     func clearTextFeild() {
-        if self.isFirstResponder {
-            self.text = ""
+        if textInput.isMember(of: UITextField.self){
+            let textFiled = textInput as! UITextField
+            if textFiled.isFirstResponder {
+                textFiled.text = ""
+            }
+        }
+        if textInput.isMember(of: UITextView.self){
+            let textView = textInput as! UITextView
+            if textView.isFirstResponder {
+                textView.text = ""
+            }
         }
     }
     
