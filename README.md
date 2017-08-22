@@ -50,6 +50,9 @@ The first parameter is a string array to create custom button, the second parame
 - v0.3
     - Support UITextView.
 
+- v0.3.1
+    - Fix the init issue of AccessoryToolbar.
+
 ## Author
 
 Meng Li, http://fczm.pw, lm2343635@126.com

@@ -28,6 +28,7 @@ import Foundation
 
 public extension UITextField {
     
+    // Add keyboard accessory for text field.
     func setupKeyboardAccessory(_ strings: [String], barStyle: UIBarStyle) {
         self.inputAccessoryView = AccessoryToolbar.init(strings, barStyle: barStyle, forTextInput: self)
     }
@@ -36,6 +37,7 @@ public extension UITextField {
 
 public extension UITextView {
     
+    // Add keyboard accessory for text view.
     func setupKeyboardAccessory(_ strings: [String], barStyle: UIBarStyle) {
         self.inputAccessoryView = AccessoryToolbar.init(strings, barStyle: barStyle, forTextInput: self)
     }

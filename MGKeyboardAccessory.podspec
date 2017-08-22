@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MGKeyboardAccessory'
-  s.version          = '0.3'
+  s.version          = '0.3.1'
   s.summary          = 'A keyboard accessory to input special characters.'
 
   s.description      = <<-DESC
