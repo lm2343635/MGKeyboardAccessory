@@ -101,24 +101,24 @@ class AccessoryToolbar: UIToolbar {
     }
     
     func addText(_ sender: UIButton) {
-        if textInput.isMember(of: UITextField.self){
+        if textInput.isKind(of: UITextField.self){
             let textFiled = textInput as! UITextField
             textFiled.insertText((sender.titleLabel?.text)!)
         }
-        if textInput.isMember(of: UITextView.self) {
+        if textInput.isKind(of: UITextView.self) {
             let textView = textInput as! UITextView
             textView.insertText((sender.titleLabel?.text)!)
         }
     }
     
     func editFinish() {
-        if textInput.isMember(of: UITextField.self){
+        if textInput.isKind(of: UITextField.self){
             let textFiled = textInput as! UITextField
             if textFiled.isFirstResponder {
                 textFiled.resignFirstResponder()
             }
         }
-        if textInput.isMember(of: UITextView.self){
+        if textInput.isKind(of: UITextView.self){
             let textView = textInput as! UITextView
             if textView.isFirstResponder {
                 textView.resignFirstResponder()
@@ -127,13 +127,13 @@ class AccessoryToolbar: UIToolbar {
     }
     
     func clearTextFeild() {
-        if textInput.isMember(of: UITextField.self){
+        if textInput.isKind(of: UITextField.self){
             let textFiled = textInput as! UITextField
             if textFiled.isFirstResponder {
                 textFiled.text = ""
             }
         }
-        if textInput.isMember(of: UITextView.self){
+        if textInput.isKind(of: UITextView.self){
             let textView = textInput as! UITextView
             if textView.isFirstResponder {
                 textView.text = ""
