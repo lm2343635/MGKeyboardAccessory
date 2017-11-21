@@ -8,7 +8,7 @@ inserted to text field if the button is clicked.
 ## Features
 - Support custom characters.
 - Support two styles: defualt and dark.
-- Support both UITextField and UITextView.
+- Support UITextField, UITextView and their subclasses.
 
 ## Example
 
@@ -52,6 +52,9 @@ The first parameter is a string array to create custom button, the second parame
 
 - v0.3.1
     - Fix the init issue of AccessoryToolbar.
+
+- 0.3.2
+	- Allow UITextView / UITextField subclasses. Thanks for the contribution from Dan2552.
 
 ## Author
 
