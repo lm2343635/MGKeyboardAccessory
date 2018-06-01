@@ -100,7 +100,7 @@ class AccessoryToolbar: UIToolbar {
         return characterButtonItem
     }
     
-    func addText(_ sender: UIButton) {
+    @objc func addText(_ sender: UIButton) {
         if textInput.isKind(of: UITextField.self){
             let textFiled = textInput as! UITextField
             textFiled.insertText((sender.titleLabel?.text)!)
@@ -111,7 +111,7 @@ class AccessoryToolbar: UIToolbar {
         }
     }
     
-    func editFinish() {
+    @objc func editFinish() {
         if textInput.isKind(of: UITextField.self){
             let textFiled = textInput as! UITextField
             if textFiled.isFirstResponder {
@@ -126,7 +126,7 @@ class AccessoryToolbar: UIToolbar {
         }
     }
     
-    func clearTextFeild() {
+    @objc func clearTextFeild() {
         if textInput.isKind(of: UITextField.self){
             let textFiled = textInput as! UITextField
             if textFiled.isFirstResponder {
