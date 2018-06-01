@@ -20,7 +20,7 @@ MGKeyboardAccessory is available through [CocoaPods](http://cocoapods.org). To i
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'MGKeyboardAccessory', '~> 0.3'
+pod 'MGKeyboardAccessory', '~> 0.4'
 ```
 
 ## How to use
@@ -56,10 +56,15 @@ The first parameter is a string array to create custom button, the second parame
 - 0.3.2
 	- Allow UITextView / UITextField subclasses. Thanks for the contribution from Dan2552.
 
+- 0.4
+	- Support Swift 4.
+
 ## Author
 
-Meng Li, http://fczm.pw, lm2343635@126.com
+Meng Li, http://www.fczm.pw, lm2343635@126.com
 
 ## License
 
 MGKeyboardAccessory is available under the MIT license. See the LICENSE file for more info.
+
+
