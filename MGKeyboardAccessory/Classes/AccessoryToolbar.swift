@@ -28,11 +28,11 @@ import Foundation
 
 class AccessoryToolbar: UIToolbar {
     
-    private var textInput: UITextInput!
+    private var textInput: UITextInput?
     
     public init(_ strings: [String], barStyle: UIBarStyle, forTextInput: UITextInput) {
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
-        self.textInput = forTextInput;
+        self.textInput = forTextInput
         self.barStyle = barStyle;
         let buttonColor = (barStyle == .default) ? UIColor.darkGray : UIColor.white
         let clearButtonItem = UIBarButtonItem(barButtonSystemItem: .trash,
