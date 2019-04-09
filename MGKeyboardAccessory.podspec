@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MGKeyboardAccessory'
-  s.version          = '0.4.1'
+  s.version          = '0.5'
   s.summary          = 'A keyboard accessory to input special characters.'
 
   s.description      = <<-DESC
@@ -25,7 +25,8 @@ MGKeyboardAccessory is a keyboard accessory to input special characters in UITex
   s.social_media_url = "http://fczm.pw"
   s.source           = { :git => 'https://github.com/lm2343635/MGKeyboardAccessory.git', :tag => s.version.to_s }
 
-  s.platform     = :ios
+  s.platform = :ios
+  s.swift_version = '5.0'
   s.ios.deployment_target = '8.0'
   s.source_files = 'MGKeyboardAccessory/Classes/**/*'
 
