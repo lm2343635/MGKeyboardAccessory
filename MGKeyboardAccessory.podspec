@@ -22,12 +22,22 @@ MGKeyboardAccessory is a keyboard accessory to input special characters in UITex
   s.homepage         = 'https://github.com/lm2343635/MGKeyboardAccessory'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Meng Li' => 'lm2343635@126.com' }
-  s.social_media_url = "http://fczm.pw"
+  s.social_media_url = "http://www.fczm.pw"
   s.source           = { :git => 'https://github.com/lm2343635/MGKeyboardAccessory.git', :tag => s.version.to_s }
 
-  s.platform = :ios
-  s.swift_version = '5.0'
   s.ios.deployment_target = '8.0'
-  s.source_files = 'MGKeyboardAccessory/Classes/**/*'
+  s.swift_version = '5.0'
+  
+  s.default_subspec = 'Core'
+  
+  s.subspec 'Core' do |core|
+    core.source_files = 'MGKeyboardAccessory/Classes/Core/**/*'
+  end
+  
+  s.subspec 'Rx' do |rx|
+    rx.dependency 'MGKeyboardAccessory/Core', '~> 0'
+    rx.dependency 'RxCocoa', '~> 4.5'
+    rx.source_files = 'MGKeyboardAccessory/Classes/Rx/**/*'
+  end
 
 end

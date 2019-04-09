@@ -2,8 +2,8 @@
 //  MGKeyboardAccessory.swift
 //  MGKeyboardAccessory
 //
-//  Created by Meng Li on 01/22/2017.
-//  Copyright (c) 2017 fczm.pw. All rights reserved.
+//  Created by Meng Li on 04/09/2019.
+//  Copyright (c) 2019 MuShare. All rights reserved.
 //
 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,22 +24,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import Foundation
+import RxSwift
+import RxCocoa
 
-public extension UITextField {
+extension Reactive where Base: UITextField {
     
-    // Add keyboard accessory for text field.
-    func setupKeyboardAccessory(_ strings: [String], barStyle: UIBarStyle) {
-        self.inputAccessoryView = AccessoryToolbar.init(strings, barStyle: barStyle, forTextInput: self)
+    func keyboardAccessoryStrings(style: UIBarStyle) -> Binder<[String]> {
+        return Binder(self.base) { (textField, strings) in
+            textField.setupKeyboardAccessory(strings, barStyle: style)
+        }
     }
-
+    
 }
 
-public extension UITextView {
+extension Reactive where Base: UITextView {
     
-    // Add keyboard accessory for text view.
-    func setupKeyboardAccessory(_ strings: [String], barStyle: UIBarStyle) {
-        self.inputAccessoryView = AccessoryToolbar.init(strings, barStyle: barStyle, forTextInput: self)
+    func keyboardAccessoryStrings(style: UIBarStyle) -> Binder<[String]> {
+        return Binder(self.base) { (textView, strings) in
+            textView.setupKeyboardAccessory(strings, barStyle: style)
+        }
     }
     
 }

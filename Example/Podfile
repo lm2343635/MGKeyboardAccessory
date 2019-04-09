@@ -2,11 +2,9 @@ use_frameworks!
 platform :ios, '8.3'
 
 target 'MGKeyboardAccessory_Example' do
-  pod 'MGKeyboardAccessory', :path => '../'
+  pod 'MGKeyboardAccessory/Rx', :path => '../'
 
   target 'MGKeyboardAccessory_Tests' do
     inherit! :search_paths
-
-    
   end
 end

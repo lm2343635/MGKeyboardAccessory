@@ -3,7 +3,7 @@
 //  MGKeyboardAccessory
 //
 //  Created by Meng Li on 12/08/2017.
-//
+//  Copyright (c) 2019 MuShare. All rights reserved.
 //
 
 // Permission is hereby granted, free of charge, to any person obtaining a copy

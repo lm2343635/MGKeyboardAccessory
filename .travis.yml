@@ -13,3 +13,4 @@ before_install:
 
 script:
 - set -o pipefail && xcodebuild -workspace Example/MGKeyboardAccessory.xcworkspace -scheme MGKeyboardAccessory-Example -sdk iphonesimulator build CODE_SIGNING_REQUIRED=NO | xcpretty -c 
+- pod lib lint
