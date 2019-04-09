@@ -38,6 +38,14 @@ blackTextField.setupKeyboardAccessory([":", "/", "\""], barStyle: .black)
 
 The first parameter is a string array to create custom button, the second parameter is the bar style. Use **UIBarStyle** provided by UIKit directly.
 
+#### Reactive extension for RxSwift
+
+MGKeyboardAccessory also supports reactive extension for RxSwift.
+
+```Swift
+Observable.just([":", "/", "?", "&", ".", "="])
+    .bind(to: textView.rx.keyboardAccessoryStrings(style: .black)).disposed(by: disposeBag)
+```
 
 ## Change log
 
