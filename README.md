@@ -59,6 +59,10 @@ The first parameter is a string array to create custom button, the second parame
 - 0.4
 	- Support Swift 4.
 
+- 0.5
+    - Support Swift 5.0.
+    - Support reactive extension for RxSwift.
+    
 ## Author
 
 Meng Li, http://www.fczm.pw, lm2343635@126.com

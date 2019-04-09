@@ -29,7 +29,7 @@ import RxCocoa
 
 extension Reactive where Base: UITextField {
     
-    func keyboardAccessoryStrings(style: UIBarStyle) -> Binder<[String]> {
+    public func keyboardAccessoryStrings(style: UIBarStyle) -> Binder<[String]> {
         return Binder(self.base) { (textField, strings) in
             textField.setupKeyboardAccessory(strings, barStyle: style)
         }
@@ -39,7 +39,7 @@ extension Reactive where Base: UITextField {
 
 extension Reactive where Base: UITextView {
     
-    func keyboardAccessoryStrings(style: UIBarStyle) -> Binder<[String]> {
+    public func keyboardAccessoryStrings(style: UIBarStyle) -> Binder<[String]> {
         return Binder(self.base) { (textView, strings) in
             textView.setupKeyboardAccessory(strings, barStyle: style)
         }

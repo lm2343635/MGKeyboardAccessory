@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  MGKeyboardAccessory
 //
-//  Created by limeng on 01/22/2017.
-//  Copyright (c) 2017 limeng. All rights reserved.
+//  Created by Meng Li on 01/22/2017.
+//  Copyright (c) 2017 MuShare. All rights reserved.
 //
 
 import UIKit
