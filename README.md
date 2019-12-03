@@ -75,6 +75,9 @@ Observable.just([":", "/", "?", "&", ".", "="])
 - 0.5
     - Support Swift 5.0.
     - Support reactive extension for RxSwift.
+
+- 0.6
+    - Support RxSwift 5.0.
     
 ## Author
 
