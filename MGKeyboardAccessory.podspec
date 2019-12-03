@@ -25,8 +25,9 @@ MGKeyboardAccessory is a keyboard accessory to input special characters in UITex
   s.social_media_url = "http://www.fczm.pw"
   s.source           = { :git => 'https://github.com/lm2343635/MGKeyboardAccessory.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
-  
+  s.ios.deployment_target = '10.0'
+  s.swift_version = '5.0'
+
   s.default_subspec = 'Core'
   
   s.subspec 'Core' do |core|
@@ -35,7 +36,7 @@ MGKeyboardAccessory is a keyboard accessory to input special characters in UITex
   
   s.subspec 'Rx' do |rx|
     rx.dependency 'MGKeyboardAccessory/Core', '~> 0'
-    rx.dependency 'RxCocoa', '~> 4.5'
+    rx.dependency 'RxCocoa', '~> 5.0'
     rx.source_files = 'MGKeyboardAccessory/Classes/Rx/**/*'
   end
 
