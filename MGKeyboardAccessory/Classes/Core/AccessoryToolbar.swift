@@ -52,7 +52,6 @@ class AccessoryToolbar: UIToolbar {
         )
         barButtonItem.width = 150
         barButtonItem.tintColor = buttonColor
-        barButtonItem.setTitleTextAttributes([NSAttributedString.Key.baselineOffset: NSNumber(value: -3)], for: .normal)
         return barButtonItem
     }()
     
