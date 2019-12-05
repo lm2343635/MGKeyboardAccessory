@@ -52,33 +52,6 @@ Observable.just([":", "/", "?", "&", ".", "="])
     .bind(to: textView.rx.keyboardAccessoryStrings(style: .black)).disposed(by: disposeBag)
 ```
 
-## Change log
-
-- v0.1.1
-	- Fix the issue about the width of keyboard accessory.
-
-- v0.2
-    - Support to scroll character buttons horizontally.
-
-- v0.3
-    - Support UITextView.
-
-- v0.3.1
-    - Fix the init issue of AccessoryToolbar.
-
-- 0.3.2
-	- Allow UITextView / UITextField subclasses. Thanks for the contribution from Dan2552.
-
-- 0.4
-	- Support Swift 4.
-
-- 0.5
-    - Support Swift 5.0.
-    - Support reactive extension for RxSwift.
-
-- 0.6
-    - Support RxSwift 5.0.
-    
 ## Author
 
 Meng Li, http://www.fczm.pw, lm2343635@126.com
