@@ -52,6 +52,7 @@ class AccessoryToolbar: UIToolbar {
         )
         barButtonItem.width = 150
         barButtonItem.tintColor = buttonColor
+        barButtonItem.setTitleTextAttributes([NSAttributedString.Key.baselineOffset: NSNumber(value: -3)], for: .normal)
         return barButtonItem
     }()
     
@@ -106,7 +107,7 @@ class AccessoryToolbar: UIToolbar {
                 return button
             }()
             buttonsView.addSubview(stringButton)
-            x = x + 2 + width
+            x += 2 + width
         }
         // If button width is larger than the max avaliable width for all character buttons,
         // set screen width - 110 as button width.
