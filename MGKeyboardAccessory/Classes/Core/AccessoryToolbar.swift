@@ -28,35 +28,56 @@ import Foundation
 
 class AccessoryToolbar: UIToolbar {
     
+    private lazy var clearBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .trash,
+            target: self,
+            action: #selector(clearTextFeild)
+        )
+        barButtonItem.tintColor = buttonColor
+        return barButtonItem
+    }()
+    
+    private lazy var spaceBarButtonItem = UIBarButtonItem(
+        barButtonSystemItem: .flexibleSpace,
+        target: self,
+        action: nil
+    )
+    
+    private lazy var doneBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .done,
+            target: self,
+            action: #selector(editFinish)
+        )
+        barButtonItem.width = 150
+        barButtonItem.tintColor = buttonColor
+        return barButtonItem
+    }()
+    
     private var textInput: UITextInput?
+    
+    private var buttonColor: UIColor {
+        barStyle == .default ? .darkGray : .white
+    }
     
     public init(_ strings: [String], barStyle: UIBarStyle, forTextInput: UITextInput) {
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
         self.textInput = forTextInput
-        self.barStyle = barStyle;
-        let buttonColor = (barStyle == .default) ? UIColor.darkGray : UIColor.white
-        let clearButtonItem = UIBarButtonItem(barButtonSystemItem: .trash,
-                                              target: self,
-                                              action: #selector(clearTextFeild))
-        clearButtonItem.tintColor = buttonColor
-        let spaceButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                              target: self,
-                                              action: nil)
-        let doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
-                                             target: self,
-                                             action: #selector(editFinish))
-        doneButtonItem.width = 150;
-        doneButtonItem.tintColor = buttonColor
-        
-        let items = [clearButtonItem,
-                     spaceButtonItem,
-                     createStringBarButtonItem(strings: strings,
-                                               color:  buttonColor,
-                                               action: #selector(addText(_:)),
-                                               height: 26),
-                     spaceButtonItem,
-                     doneButtonItem]
-        self.setItems(items, animated: false)
+        self.barStyle = barStyle
+
+        setItems([
+            clearBarButtonItem,
+            spaceBarButtonItem,
+            createStringBarButtonItem(
+                strings: strings,
+                color:  buttonColor,
+                action: #selector(addText(_:)),
+                height: 26
+            ),
+            spaceBarButtonItem,
+            doneBarButtonItem
+        ], animated: false)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -90,8 +111,8 @@ class AccessoryToolbar: UIToolbar {
         // If button width is larger than the max avaliable width for all character buttons,
         // set screen width - 110 as button width.
         var buttonWidth = x - 2
-        if UIScreen.main.bounds.width - 110 < buttonWidth {
-            buttonWidth = UIScreen.main.bounds.width - 110
+        if UIScreen.main.bounds.width - 130 < buttonWidth {
+            buttonWidth = UIScreen.main.bounds.width - 130
         }
         buttonsView.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: height)
         buttonsView.contentSize = CGSize(width: x - 2, height: 0)
@@ -126,11 +147,11 @@ class AccessoryToolbar: UIToolbar {
     @objc func clearTextFeild() {
         if let textFiled = textInput as? UITextField {
             if textFiled.isFirstResponder {
-                textFiled.text = ""
+                textFiled.text = nil
             }
         } else if let textView = textInput as? UITextView {
             if textView.isFirstResponder {
-                textView.text = ""
+                textView.text = nil
             }
         }
     }
