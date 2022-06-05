@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MGKeyboardAccessory'
-  s.version          = '0.6.1'
+  s.version          = '0.7'
   s.summary          = 'A keyboard accessory to input special characters.'
 
   s.description      = <<-DESC
@@ -36,7 +36,7 @@ MGKeyboardAccessory is a keyboard accessory to input special characters in UITex
   
   s.subspec 'Rx' do |rx|
     rx.dependency 'MGKeyboardAccessory/Core', '~> 0'
-    rx.dependency 'RxCocoa', '~> 5.0'
+    rx.dependency 'RxCocoa', '~> 6'
     rx.source_files = 'MGKeyboardAccessory/Classes/Rx/**/*'
   end
 
