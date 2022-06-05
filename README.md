@@ -25,7 +25,7 @@ MGKeyboardAccessory is available through [CocoaPods](http://cocoapods.org). To i
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'MGKeyboardAccessory', '~> 0.4'
+pod 'MGKeyboardAccessory'
 ```
 
 ## How to use
@@ -54,7 +54,7 @@ Observable.just([":", "/", "?", "&", ".", "="])
 
 ## Author
 
-Meng Li, http://www.fczm.pw, lm2343635@126.com
+Meng Li, https://fczm.pw, lm2343635@126.com
 
 ## License
 
